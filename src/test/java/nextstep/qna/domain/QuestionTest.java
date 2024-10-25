@@ -23,4 +23,9 @@ public class QuestionTest {
             Q1.delete(NsUserTest.SANJIGI);
         }).isInstanceOf(CannotDeleteException.class);
     }
+
+    @Test
+    void toDeleteHistory_생성() {
+        assertThat(Q1.toDeleteHistory()).isNotNull();
+    }
 }

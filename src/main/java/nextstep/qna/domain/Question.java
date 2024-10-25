@@ -87,6 +87,10 @@ public class Question {
         }
     }
 
+    public DeleteHistory toDeleteHistory() {
+        return new DeleteHistory(ContentType.QUESTION, id, writer, LocalDateTime.now());
+    }
+
     public boolean isDeleted() {
         return deleted;
     }
