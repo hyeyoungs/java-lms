@@ -77,7 +77,7 @@ public class Question {
         deleteAnswers(loginUser);
     }
 
-    public boolean isOwner(NsUser loginUser) {
+    private boolean isOwner(NsUser loginUser) {
         return writer.equals(loginUser);
     }
 
