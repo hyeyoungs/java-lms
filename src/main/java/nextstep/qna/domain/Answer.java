@@ -59,6 +59,10 @@ public class Answer {
         return this.writer.equals(writer);
     }
 
+    public DeleteHistory toDeleteHistory() {
+        return new DeleteHistory(ContentType.ANSWER, id, writer, LocalDateTime.now());
+    }
+
     public boolean isDeleted() {
         return deleted;
     }
