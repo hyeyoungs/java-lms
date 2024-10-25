@@ -25,7 +25,9 @@ public class QuestionTest {
     }
 
     @Test
-    void toDeleteHistory_생성() {
-        assertThat(Q1.toDeleteHistory()).isNotNull();
+    void toDeleteHistories_생성() throws Exception {
+        Q1.addAnswer(new Answer(NsUserTest.JAVAJIGI, Q1, "Answers Contents1"));
+        Q1.delete(NsUserTest.JAVAJIGI);
+        assertThat(Q1.toDeleteHistories()).hasSize(2);
     }
 }

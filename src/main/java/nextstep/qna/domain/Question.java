@@ -87,7 +87,16 @@ public class Question {
         }
     }
 
-    public DeleteHistory toDeleteHistory() {
+    public List<DeleteHistory> toDeleteHistories() {
+        List<DeleteHistory> deleteHistories = new ArrayList<>();
+        deleteHistories.add(toDeleteHistory());
+        for (Answer answer : answers) {
+            deleteHistories.add(answer.toDeleteHistory());
+        }
+        return deleteHistories;
+    }
+
+    private DeleteHistory toDeleteHistory() {
         return new DeleteHistory(ContentType.QUESTION, id, writer, LocalDateTime.now());
     }
 
