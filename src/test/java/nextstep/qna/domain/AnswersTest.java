@@ -2,6 +2,7 @@ package nextstep.qna.domain;
 
 import nextstep.qna.CannotDeleteException;
 import nextstep.users.domain.NsUserTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -15,6 +16,7 @@ class AnswersTest {
     public static final Answer A3 = new Answer(NsUserTest.SANJIGI, QuestionTest.Q1, "Answers Contents3");
 
     @Test
+    @DisplayName("답변 추가 확인")
     void add() {
         Answers answers = new Answers();
         answers.add(A1);
@@ -24,6 +26,7 @@ class AnswersTest {
     }
 
     @Test
+    @DisplayName("전체 답변 작성자가 질문자와 같다면 삭제")
     void deleteAll_success() throws CannotDeleteException {
         Answers answers = new Answers();
         answers.add(A1);
@@ -36,6 +39,7 @@ class AnswersTest {
     }
 
     @Test
+    @DisplayName("전체 답변 작성자가 하나라도 질문자와 다르다면 삭제 불가")
     void deleteAll_failure() {
         Answers answers = new Answers();
         answers.add(A1);
@@ -46,6 +50,7 @@ class AnswersTest {
     }
 
     @Test
+    @DisplayName("전체 답변 삭제 시 이력 생성")
     void toDeleteHistories() throws CannotDeleteException {
         Answers answers = new Answers();
         answers.add(A1);
