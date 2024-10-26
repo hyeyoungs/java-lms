@@ -26,7 +26,7 @@ class AnswersTest {
     }
 
     @Test
-    @DisplayName("전체 답변 작성자가 질문자와 같다면 삭제")
+    @DisplayName("답변 모두가 질문자가 작성한 답변이라면 답변들을 삭제 가능")
     void deleteAll_success() throws CannotDeleteException {
         Answers answers = new Answers();
         answers.add(A1);
@@ -39,7 +39,7 @@ class AnswersTest {
     }
 
     @Test
-    @DisplayName("전체 답변 작성자가 하나라도 질문자와 다르다면 삭제 불가")
+    @DisplayName("다른 사람이 작성한 답변이 포함되어 있다면 답변들을 삭제 불가")
     void deleteAll_failure() {
         Answers answers = new Answers();
         answers.add(A1);
